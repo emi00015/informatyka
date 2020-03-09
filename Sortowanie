@@ -1,0 +1,27 @@
+#include <iostream>
+#include <fstream>
+
+using namespace std;
+
+int tab[1000000] = {0};
+
+int main()
+{
+    ifstream in;
+    in.open("dane.txt");
+    ofstream out;
+    out.open ("posortowane.txt");
+
+    int num;
+    while(in >> num)
+    {
+        tab[num]++;
+    }
+    for (auto i = 1000000; i>=0;i-- )
+    {
+        while (tab[i]--)
+            out << i << endl;
+    }
+    in.close();
+    out.close();
+}
